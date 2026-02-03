@@ -1,0 +1,2 @@
+export const MARKET_DATA_ADAPTER = Symbol('MARKET_DATA_ADAPTER');
+export const EXECUTION_ADAPTER = Symbol('EXECUTION_ADAPTER');

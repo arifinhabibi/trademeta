@@ -1,3 +1,5 @@
+import { NormalizedOhlcv } from '../market-data/market-data.types';
+
 export type EventType =
   | 'market-data.received'
   | 'analysis.completed'
@@ -22,6 +24,7 @@ export interface MarketDataReceivedPayload {
   volume: number;
   source: string;
   tick: number;
+  ohlcv: NormalizedOhlcv;
 }
 
 export interface AnalysisCompletedPayload {
