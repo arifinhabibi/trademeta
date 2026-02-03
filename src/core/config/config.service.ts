@@ -1,7 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { parseTradingMode, TradingMode } from './trading-mode';
 
 @Injectable()
 export class ConfigService {
+  get tradingMode(): TradingMode {
+    return parseTradingMode(process.env.TRADING_MODE);
+  }
+
   get marketDataSymbol(): string {
     return process.env.MARKET_DATA_SYMBOL ?? 'BTC-USD';
   }
@@ -12,6 +17,10 @@ export class ConfigService {
 
   get schedulerIntervalMs(): number {
     return Number(process.env.SCHEDULER_INTERVAL_MS ?? 2000);
+  }
+
+  get backtestMaxTicks(): number {
+    return Number(process.env.BACKTEST_MAX_TICKS ?? 120);
   }
 
   get riskMaxExposure(): number {
